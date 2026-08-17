@@ -1,112 +1,103 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ML Field Notes — แผนที่อัลกอริทึม Machine Learning</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Visualizations Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<div class="wrap">
-  <div class="topbar">
-    <span>ML FIELD NOTES</span>
-    <span class="plate-number">14 PLATES</span>
-  </div>
+<body class="bg-slate-900 text-white min-h-screen p-8">
+    <div class="max-w-6xl mx-auto space-y-8">
+        <div class="text-center space-y-3">
+            <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                Machine Learning Algorithms Visualization
+            </h1>
+            <p class="text-slate-400">ระบบแสดงผล Interactive One-Page Visualizations & Parameter Tuning</p>
+        </div>
 
-  <div class="hero">
-    <span class="eyebrow">Supervised · Unsupervised · Reinforcement</span>
-    <h1>แผนผังอัลกอริทึม<br>Machine Learning</h1>
-    <p class="lede">สมุดบันทึกภาคสนามสไตล์พิมพ์เขียว รวบรวม 14 อัลกอริทึมหลักของ Machine Learning แบ่งตามประเภทการเรียนรู้ พร้อมแผนภาพ วิธีการทำงาน ข้อดีข้อจำกัด และตัวอย่างการใช้งานจริงของแต่ละหัวข้อ</p>
-  </div>
+        <!-- Supervised Learning -->
+        <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-blue-400 border-b border-slate-700 pb-2">Supervised Learning</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="01-linear-regression.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">1. Linear Regression</h3>
+                    <p class="text-xs text-slate-400 mt-1">Fitting Line & Noise Tuning</p>
+                </a>
+                <a href="02-logistic-regression.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">2. Logistic Regression</h3>
+                    <p class="text-xs text-slate-400 mt-1">Sigmoid Probability & Threshold</p>
+                </a>
+                <a href="03-knn.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">3. k-NN</h3>
+                    <p class="text-xs text-slate-400 mt-1">Nearest Neighbors Classification</p>
+                </a>
+                <a href="04-decision-tree.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">4. Decision Tree</h3>
+                    <p class="text-xs text-slate-400 mt-1">Decision Boundary & Depth Split</p>
+                </a>
+                <a href="05-random-forest.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">5. Random Forest</h3>
+                    <p class="text-xs text-slate-400 mt-1">Multi-Tree Ensemble Voting</p>
+                </a>
+                <a href="06-svm.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">6. SVM</h3>
+                    <p class="text-xs text-slate-400 mt-1">Optimal Hyperplane & Margin Bounds</p>
+                </a>
+                <a href="13-xgboost.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">13. XGBoost</h3>
+                    <p class="text-xs text-slate-400 mt-1">Gradient Boosting Loss Residuals</p>
+                </a>
+                <a href="14-stacking.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">14. Stacking</h3>
+                    <p class="text-xs text-slate-400 mt-1">Meta-Learner Ensemble Combined</p>
+                </a>
+            </div>
+        </div>
 
-  <div class="category-block">
-    <div class="category-head"><span class="swatch" style="background:var(--supervised)"></span><h2>Supervised Learning</h2></div>
-    <p class="category-sub">เรียนรู้แบบมีผู้สอน — ใช้ข้อมูลที่มีคำตอบ (label) กำกับไว้</p>
-    <div class="card-grid">
-    <a class="algo-card" href="01-linear-regression.html">
-      <div class="name">Linear Regression</div>
-      <div class="name-en">เส้นถดถอยเชิงเส้น</div>
-    </a>
-    <a class="algo-card" href="02-logistic-regression.html">
-      <div class="name">Logistic Regression</div>
-      <div class="name-en">ถดถอยโลจิสติก</div>
-    </a>
-    <a class="algo-card" href="03-knn.html">
-      <div class="name">k-Nearest Neighbors (kNN)</div>
-      <div class="name-en">เพื่อนบ้านใกล้ที่สุด k ตัว</div>
-    </a>
-    <a class="algo-card" href="04-decision-tree.html">
-      <div class="name">Decision Tree</div>
-      <div class="name-en">ต้นไม้ตัดสินใจ</div>
-    </a>
-    <a class="algo-card" href="05-random-forest.html">
-      <div class="name">Random Forest</div>
-      <div class="name-en">ป่าต้นไม้สุ่ม</div>
-    </a>
-    <a class="algo-card" href="06-svm.html">
-      <div class="name">Support Vector Machine (SVM)</div>
-      <div class="name-en">ซัพพอร์ตเวกเตอร์แมชชีน</div>
-    </a>
-    <a class="algo-card" href="07-kmeans.html">
-      <div class="name">K-Means</div>
-      <div class="name-en">การจัดกลุ่มแบบ K-Means</div>
-    </a>
-    <a class="algo-card" href="08-mlp.html">
-      <div class="name">MLP (Neural Network)</div>
-      <div class="name-en">โครงข่ายประสาทเทียมหลายชั้น</div>
-    </a>
-    </div>
-  </div>
-  <div class="category-block">
-    <div class="category-head"><span class="swatch" style="background:var(--unsupervised)"></span><h2>Unsupervised / Deep Learning</h2></div>
-    <p class="category-sub">เรียนรู้จากข้อมูลดิบ หรือโครงสร้างเครือข่ายประสาทเชิงลึก</p>
-    <div class="card-grid">
-    <a class="algo-card" href="09-cnn.html">
-      <div class="name">CNN (Convolutional Neural Network)</div>
-      <div class="name-en">โครงข่ายประสาทแบบคอนโวลูชัน</div>
-    </a>
-    <a class="algo-card" href="10-lstm.html">
-      <div class="name">LSTM (Long Short-Term Memory)</div>
-      <div class="name-en">โครงข่ายความจำระยะสั้นแบบยาว</div>
-    </a>
-    <a class="algo-card" href="11-transformer.html">
-      <div class="name">Transformer</div>
-      <div class="name-en">โครงข่ายทรานส์ฟอร์เมอร์</div>
-    </a>
-    </div>
-  </div>
-  <div class="category-block">
-    <div class="category-head"><span class="swatch" style="background:var(--reinforcement)"></span><h2>Reinforcement Learning</h2></div>
-    <p class="category-sub">เรียนรู้จากการลองผิดลองถูกและรางวัลตอบแทน</p>
-    <div class="card-grid">
-    <a class="algo-card" href="12-reinforcement-learning.html">
-      <div class="name">Reinforcement Learning</div>
-      <div class="name-en">การเรียนรู้แบบเสริมกำลัง</div>
-    </a>
-    </div>
-  </div>
-  <div class="category-block">
-    <div class="category-head"><span class="swatch" style="background:var(--bonus)"></span><h2>ถ้ามีเวลา (Bonus)</h2></div>
-    <p class="category-sub">หัวข้อเสริม สำหรับต่อยอดเมื่อมีเวลาเพียงพอ</p>
-    <div class="card-grid">
-    <a class="algo-card" href="13-xgboost.html">
-      <div class="name">XGBoost</div>
-      <div class="name-en">Extreme Gradient Boosting</div>
-    </a>
-    <a class="algo-card" href="14-stacking.html">
-      <div class="name">Stacking</div>
-      <div class="name-en">การซ้อนโมเดล (Stacked Generalization)</div>
-    </a>
-    </div>
-  </div>
+        <!-- Unsupervised Learning -->
+        <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-amber-400 border-b border-slate-700 pb-2">Unsupervised Learning</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="07-kmeans.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">7. K-Means</h3>
+                    <p class="text-xs text-slate-400 mt-1">Centroid Clustering Simulation</p>
+                </a>
+            </div>
+        </div>
 
-  <footer class="sitefoot">
-    <span>ML FIELD NOTES — 14 ALGORITHMS</span>
-    <span>สร้างด้วย Claude</span>
-  </footer>
-</div>
+        <!-- Deep Learning -->
+        <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-purple-400 border-b border-slate-700 pb-2">Deep Learning & Sequential</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="08-mlp.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">8. MLP</h3>
+                    <p class="text-xs text-slate-400 mt-1">Neural Network Architecture</p>
+                </a>
+                <a href="09-cnn.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">9. CNN</h3>
+                    <p class="text-xs text-slate-400 mt-1">Convolution Matrix & Strides</p>
+                </a>
+                <a href="10-lstm.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">10. LSTM</h3>
+                    <p class="text-xs text-slate-400 mt-1">Sequential Time Series Memory</p>
+                </a>
+                <a href="11-transformer.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">11. Transformer</h3>
+                    <p class="text-xs text-slate-400 mt-1">Self-Attention Matrix Heatmap</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Reinforcement Learning -->
+        <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-rose-400 border-b border-slate-700 pb-2">Reinforcement Learning</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="12-reinforcement-learning.html" class="p-4 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 transition">
+                    <h3 class="font-bold text-lg text-white">12. Reinforcement Learning</h3>
+                    <p class="text-xs text-slate-400 mt-1">Q-Learning GridWorld Simulation</p>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
