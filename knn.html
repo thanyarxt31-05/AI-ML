@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kNN · ML Visualizer</title><link rel="stylesheet" href="../css/style.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="../js/common.js"></script></head>
+<body><nav class="nav"><div class="container nav-inner"><a class="brand" href="../index.html">ML <span>Visualizer</span></a><div class="nav-links"><a href="../index.html">Home</a><a href="../index.html#supervised-learning">Supervised Learning</a></div></div></nav>
+<main class="container"><section class="page-head"><div class="eyebrow">Supervised Learning</div><h1>kNN</h1><p>Classify a point from its nearest neighbors.</p></section>
+<div class="layout"><aside class="card controls"><h3>Parameter Tuning</h3><div class="control"><label>K neighbors <output id="kOut">5</output></label><input id="k" type="range" min="1" max="25" step="2" value="5"></div><button class="btn" id="runBtn" style="width:100%">Run / Regenerate</button><div style="height:10px"></div><button class="btn secondary" id="randomBtn" style="width:100%">Randomize Data</button></aside>
+<section><div class="card"><div class="canvas-wrap"><canvas id="chart"></canvas></div><div class="stats" id="stats"></div></div><div class="info-grid"><div class="card info"><h2>How it works</h2><p>Classify a point from its nearest neighbors.</p><div class="formula">prediction = majority vote of nearest neighbors</div><p>Use the controls to change model complexity and regenerate the visualization.</p></div><div class="card info"><h2>Parameter Tuning</h2><table class='table'><tr><th>Parameter</th><th>What to watch</th></tr><tr><td>K neighbors</td><td>Try values from 1 to 25 and observe model complexity / stability.</td></tr></table></div></div></section></div></main><footer class="footer">Interactive educational visualization · No backend required</footer><script>
+const data=makeClassification(180,.82);
+function render(){
+  const p={k:document.getElementById('k').value};
+  gridChart(chart,data,'kNN',(x,y)=>boundaryScore('kNN',x,y,p));
+  const complexity=+(+p.k);
+  setText('stats',`<div class="stat"><small>Samples</small><strong>${data.length}</strong></div><div class="stat"><small>Main tuning</small><strong>${Object.values(p)[0]}</strong></div><div class="stat"><small>Complexity</small><strong>${complexity.toFixed(1)}</strong></div><div class="stat"><small>Seed</small><strong>${seed()}</strong></div>`);
+}
+setupRange('k','kOut',render);
+runBtn.onclick=render;randomBtn.onclick=render;render();
+</script></body></html>

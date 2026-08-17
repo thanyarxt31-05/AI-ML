@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Logistic Regression · ML Visualizer</title><link rel="stylesheet" href="../css/style.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="../js/common.js"></script></head>
+<body><nav class="nav"><div class="container nav-inner"><a class="brand" href="../index.html">ML <span>Visualizer</span></a><div class="nav-links"><a href="../index.html">Home</a><a href="../index.html#supervised-learning">Supervised Learning</a></div></div></nav>
+<main class="container"><section class="page-head"><div class="eyebrow">Supervised Learning</div><h1>Logistic Regression</h1><p>Probability-based binary classification.</p></section>
+<div class="layout"><aside class="card controls"><h3>Parameter Tuning</h3><div class="control"><label>Temperature <output id="temperatureOut">0.2</output></label><input id="temperature" type="range" min="-2" max="2" step="0.05" value="0.2"></div><div class="control"><label>Iterations <output id="iterationsOut">100</output></label><input id="iterations" type="range" min="20" max="300" step="10" value="100"></div><button class="btn" id="runBtn" style="width:100%">Run / Regenerate</button><div style="height:10px"></div><button class="btn secondary" id="randomBtn" style="width:100%">Randomize Data</button></aside>
+<section><div class="card"><div class="canvas-wrap"><canvas id="chart"></canvas></div><div class="stats" id="stats"></div></div><div class="info-grid"><div class="card info"><h2>How it works</h2><p>Probability-based binary classification.</p><div class="formula">σ(z) = 1 / (1 + e⁻ᶻ)</div><p>Use the controls to change model complexity and regenerate the visualization.</p></div><div class="card info"><h2>Parameter Tuning</h2><table class='table'><tr><th>Parameter</th><th>What to watch</th></tr><tr><td>Temperature</td><td>Try values from -2 to 2 and observe model complexity / stability.</td></tr><tr><td>Iterations</td><td>Try values from 20 to 300 and observe model complexity / stability.</td></tr></table></div></div></section></div></main><footer class="footer">Interactive educational visualization · No backend required</footer><script>
+const data=makeClassification(180,.82);
+function render(){
+  const p={temperature:document.getElementById('temperature').value,iterations:document.getElementById('iterations').value};
+  gridChart(chart,data,'Logistic Regression',(x,y)=>boundaryScore('Logistic Regression',x,y,p));
+  const complexity=+(+p.temperature)++(+p.iterations);
+  setText('stats',`<div class="stat"><small>Samples</small><strong>${data.length}</strong></div><div class="stat"><small>Main tuning</small><strong>${Object.values(p)[0]}</strong></div><div class="stat"><small>Complexity</small><strong>${complexity.toFixed(1)}</strong></div><div class="stat"><small>Seed</small><strong>${seed()}</strong></div>`);
+}
+setupRange('temperature','temperatureOut',render);setupRange('iterations','iterationsOut',render);
+runBtn.onclick=render;randomBtn.onclick=render;render();
+</script></body></html>
