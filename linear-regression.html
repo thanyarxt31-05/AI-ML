@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 · Linear Regression — ML Field Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent-c: var(--supervised);}</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="index.html">&larr; ML Field Notes</a>
+    <span class="plate-number">PLATE 01 / 14</span>
+  </div>
+
+  <span class="badge" style="color:var(--supervised);border-color:var(--supervised)">Supervised Learning</span>
+  <h1 class="title">Linear Regression</h1>
+  <div class="subtitle-en">เส้นถดถอยเชิงเส้น</div>
+
+  <p style="font-size:17px;max-width:68ch">โมเดลพื้นฐานที่สุดในการทำนายค่าตัวเลขต่อเนื่อง โดยหาเส้นตรง (หรือระนาบในมิติที่สูงขึ้น) ที่พอดีกับข้อมูลมากที่สุด ด้วยการลดผลรวมของค่าความคลาดเคลื่อนกำลังสอง (least squares)</p>
+
+  <div class="diagram-panel" data-caption="schematic">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+<g style="stroke:var(--ink-soft);stroke-width:1">
+<line x1="50" y1="20" x2="50" y2="220"/><line x1="50" y1="220" x2="570" y2="220"/>
+</g>
+<g style="fill:var(--ink)">
+<circle cx="100" cy="180" r="5"/><circle cx="150" cy="160" r="5"/><circle cx="190" cy="175" r="5"/>
+<circle cx="230" cy="140" r="5"/><circle cx="280" cy="120" r="5"/><circle cx="330" cy="130" r="5"/>
+<circle cx="370" cy="95" r="5"/><circle cx="420" cy="80" r="5"/><circle cx="460" cy="60" r="5"/>
+<circle cx="510" cy="50" r="5"/>
+</g>
+<line x1="70" y1="200" x2="550" y2="40" style="stroke:var(--accent-c);stroke-width:3"/>
+<text x="55" y="238" style="font-family:var(--font-mono);font-size:11px;fill:var(--ink-soft)">x</text>
+<text x="20" y="24" style="font-family:var(--font-mono);font-size:11px;fill:var(--ink-soft)">y</text>
+</svg>
+  </div>
+
+  <h2 class="section-head">วิธีการทำงาน</h2>
+  <ol class="step-list">
+    <li><span class="num">01</span><span>กำหนดสมการเส้นตรง y = wx + b</span></li><li><span class="num">02</span><span>วัดความคลาดเคลื่อนระหว่างค่าจริงกับค่าที่ทำนาย (residual)</span></li><li><span class="num">03</span><span>ปรับค่า w และ b เพื่อลด Mean Squared Error ให้น้อยที่สุด มักใช้ Gradient Descent หรือ Normal Equation</span></li><li><span class="num">04</span><span>ได้เส้นที่พอดีที่สุด ใช้ทำนายค่าของข้อมูลใหม่</span></li>
+  </ol>
+
+  <h2 class="section-head">ข้อดี — ข้อจำกัด</h2>
+  <div class="two-col">
+    <div class="pros"><h3>ข้อดี</h3><ul><li>ตีความง่าย เห็นน้ำหนักของแต่ละตัวแปรชัดเจน</li><li>คำนวณเร็ว เหมาะกับข้อมูลขนาดใหญ่</li><li>เป็นพื้นฐานของโมเดลอื่นอีกมากมาย</li></ul></div>
+    <div class="cons"><h3>ข้อจำกัด</h3><ul><li>ทำงานได้ดีเฉพาะความสัมพันธ์เชิงเส้น</li><li>อ่อนไหวต่อค่าผิดปกติ (outlier)</li><li>ต้องระวังปัญหา multicollinearity</li></ul></div>
+  </div>
+
+  <h2 class="section-head">ตัวอย่างการใช้งานจริง</h2>
+  <div class="usecase">ทำนายราคาบ้านจากขนาดพื้นที่และทำเลที่ตั้ง หรือประมาณยอดขายจากงบโฆษณา</div>
+
+  <div class="pagenav">
+    <a href="index.html">&larr; สารบัญ</a>
+    <a href="index.html">สารบัญ</a>
+    <a href="02-logistic-regression.html">Logistic Regression &rarr;</a>
+  </div>
+</div>
+</body>
+</html>
